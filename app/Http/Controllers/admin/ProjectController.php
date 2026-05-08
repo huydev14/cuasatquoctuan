@@ -19,7 +19,7 @@ class ProjectController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
         return view('admin.projects.create', compact('categories'));
     }
 
@@ -30,11 +30,12 @@ class ProjectController extends Controller
             'category_id' => 'required|exists:categories,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'description' => 'nullable|string',
-            'status' => 'boolean',
+            'status' => 'nullable|boolean',
         ]);
 
-        $data = $request->all();
+        $data = $request->only(['title', 'category_id', 'description']);
         $data['slug'] = Str::slug($request->title) . '-' . time();
+        $data['status'] = $request->boolean('status');
 
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('projects', 'public');
@@ -49,7 +50,7 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
         return view('admin.projects.edit', compact('project', 'categories'));
     }
 
@@ -60,10 +61,10 @@ class ProjectController extends Controller
             'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'description' => 'nullable|string',
-            'status' => 'boolean',
+            'status' => 'nullable|boolean',
         ]);
 
-        $data = $request->all();
+        $data = $request->only(['title', 'category_id', 'description']);
         $data['slug'] = Str::slug($request->title) . '-' . $project->id;
         $data['status'] = $request->has('status');
 
