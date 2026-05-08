@@ -83,7 +83,7 @@
 
                 <!-- Scroll Down Hint -->
                 <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-                    <a href="#about-us"
+                    <a href="#"
                         class="flex flex-col items-center gap-2 text-white/60 hover:text-white transition">
                         <span class="text-sm font-semibold uppercase tracking-[0.06em]">Kéo xuống</span>
                         <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,26 +100,28 @@
         class="relative min-h-[80vh] bg-gradient-to-br from-sky-50 to-slate-100 px-4 py-24 text-slate-900 sm:px-6 lg:px-12 flex items-center">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center w-full">
             <div class="space-y-6">
-                <h2
+                <h2 data-animate="slideInLeft"
                     class="hero-reveal hero-reveal-delay-1 max-w-3xl text-4xl font-extrabold leading-tight tracking-[-0.03em] lg:text-6xl">
                     Thi công chất lượng, dịch vụ rõ ràng
                 </h2>
-                <p class="hero-reveal hero-reveal-delay-2 max-w-3xl text-lg leading-8 text-slate-700">
+                <p class="hero-reveal hero-reveal-delay-2 max-w-3xl text-lg leading-8 text-slate-700"
+                    data-animate="fadeInUp" data-delay="100">
                     Cơ Sắt Quốc Tuấn là cơ sở kinh doanh cơ khí chuyên thi công cửa sắt, nhôm, kiếng, cổng, lan can,
                     mái che và các hạng mục gia công theo yêu cầu. Chúng tôi tập trung vào tính bền vững, thẩm mỹ và
                     độ hoàn thiện của từng công trình, phù hợp cho nhà ở, cửa hàng và công trình dân dụng.
                 </p>
-                <p class="hero-reveal hero-reveal-delay-2 max-w-3xl text-lg leading-8 text-slate-700">
+                <p class="hero-reveal hero-reveal-delay-2 max-w-3xl text-lg leading-8 text-slate-700"
+                    data-animate="fadeInUp" data-delay="200">
                     Với kinh nghiệm hơn 20 năm trong ngành, đội ngũ của chúng tôi hiểu rõ cách tối ưu vật liệu, kết
                     cấu và phong cách thiết kế để mang lại giải pháp đẹp, chắc chắn và đáng tin cậy cho khách hàng.
                 </p>
 
-                <a href="#featured-projects"
+                <a href="#featured-projects" data-animate="fadeInUp" data-delay="300"
                     class="inline-flex mt-4 items-center justify-center rounded-full bg-amber-400 px-6 py-3 text-sm font-bold uppercase tracking-[0.06em] text-slate-900 transition hover:bg-amber-500">
                     Xem công trình</a>
             </div>
 
-            <div class="relative">
+            <div class="relative" data-animate="slideInRight">
                 <img src="{{ asset('assets/img/project-1.jpg') }}" alt="Project 1" class="h-full w-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent">
                 </div>
@@ -131,10 +133,12 @@
         class="bg-slate-50 px-4 py-24 sm:px-6 lg:px-12 min-h-[40vh] flex flex-col justify-center">
         <div class="mx-auto max-w-7xl">
             <div class="mb-12 text-center">
-                <h2 class="hero-reveal text-4xl font-extrabold leading-tight tracking-[-0.03em] lg:text-5xl">
+                <h2 class="hero-reveal text-4xl font-extrabold leading-tight tracking-[-0.03em] lg:text-5xl"
+                    data-animate="fadeInUp">
                     Công trình nổi bật
                 </h2>
-                <p class="hero-reveal hero-reveal-delay-1 mt-4 text-lg leading-8 text-slate-600 max-w-3xl mx-auto">
+                <p class="hero-reveal hero-reveal-delay-1 mt-4 text-lg leading-8 text-slate-600 max-w-3xl mx-auto"
+                    data-animate="fadeInUp" data-delay="100">
                     Một vài mẫu tiêu biểu từ dữ liệu thực tế. Nếu chưa có dữ liệu, trang sẽ hiển thị mẫu cố định hiện
                     tại.
                 </p>
@@ -143,7 +147,7 @@
             @if (isset($projects) && $projects->count() > 0)
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     @foreach ($projects->take(3) as $project)
-                        <div
+                        <div data-animate="scaleIn" data-delay="{{ $loop->index * 100 }}"
                             class="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg transition hover:shadow-2xl">
                             <div class="relative h-48 overflow-hidden bg-slate-200">
                                 @if ($project->image_path)
@@ -160,7 +164,8 @@
                                 <p class="mb-2 text-sm font-semibold uppercase tracking-[0.08em] text-sky-600">
                                     {{ $project->category?->name }}</p>
                                 <h3 class="mb-3 text-xl font-bold">{{ $project->title }}</h3>
-                                <p class="text-sm leading-7 text-slate-600 line-clamp-3">{{ $project->description }}</p>
+                                <p class="text-sm leading-7 text-slate-600 line-clamp-3">{{ $project->description }}
+                                </p>
                                 <a href="{{ route('projects.show', $project->slug) }}"
                                     class="mt-5 inline-flex items-center justify-center rounded-full bg-sky-500 px-4 py-2 text-xs font-bold uppercase tracking-[0.06em] text-white transition hover:bg-sky-600">
                                     Xem chi tiết
@@ -171,7 +176,7 @@
                 </div>
             @else
                 <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div
+                    <div data-animate="scaleIn"
                         class="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg transition hover:shadow-2xl">
                         <div class="h-48 bg-gradient-to-br from-sky-400 to-sky-600 flex items-center justify-center">
                             <p class="text-white font-semibold">Hình ảnh công trình 1</p>
@@ -181,7 +186,7 @@
                             <p class="text-slate-600 text-sm">Thiết kế theo yêu cầu, chất lượng cao</p>
                         </div>
                     </div>
-                    <div
+                    <div data-animate="scaleIn" data-delay="100"
                         class="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg transition hover:shadow-2xl">
                         <div
                             class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
@@ -192,7 +197,7 @@
                             <p class="text-slate-600 text-sm">Sang trọng và bền vững</p>
                         </div>
                     </div>
-                    <div
+                    <div data-animate="scaleIn" data-delay="200"
                         class="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-lg transition hover:shadow-2xl">
                         <div
                             class="h-48 bg-gradient-to-br from-slate-400 to-slate-600 flex items-center justify-center">
@@ -207,8 +212,8 @@
             @endif
 
             <div class="mt-12 flex justify-center">
-                <a href="/projects"
-                    class="inline-flex items-center justify-center rounded-full bg-amber-400 px-8 py-3 text-sm font-bold uppercase tracking-[0.06em]transition text-slate-900 transition hover:bg-amber-500">
+                <a href="/projects" data-animate="fadeInUp" data-delay="300"
+                    class="inline-flex items-center justify-center rounded-full border-2 border-slate-400 px-8 py-3 text-sm font-bold uppercase tracking-[0.06em] text-slate-900 shadow-sm transition duration-300 hover:border-sky-500 hover:bg-sky-50 hover:text-sky-600">
                     Xem thêm công trình
                 </a>
             </div>
@@ -217,16 +222,17 @@
 
     <section id="contact" class="bg-white px-4 py-24 text-slate-900 sm:px-6 lg:px-12">
         <div class="mx-auto max-w-7xl">
-            <h2
+            <h2 data-animate="fadeInUp"
                 class="hero-reveal text-4xl font-extrabold leading-tight tracking-[-0.03em] lg:text-5xl mb-8 text-center">
                 Liên hệ với chúng tôi
             </h2>
-            <p class="hero-reveal hero-reveal-delay-1 text-lg leading-8 text-slate-600 text-center mb-12">
+            <p class="hero-reveal hero-reveal-delay-1 text-lg leading-8 text-slate-600 text-center mb-12"
+                data-animate="fadeInUp" data-delay="100">
                 Hãy gửi yêu cầu của bạn và chúng tôi sẽ liên hệ với bạn sớm nhất có thể.
             </p>
 
             <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:grid-rows-2">
-                <div
+                <div data-animate="slideInLeft"
                     class="hero-reveal hero-reveal-delay-2 rounded-2xl overflow-hidden border border-slate-200 shadow-lg lg:col-span-1 lg:row-span-1">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20299.852345436677!2d106.59228908731792!3d10.773407800000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752d00083f4f9b%3A0xba79eaa326ef13e1!2zVsSDbiBwaMOybmcgY-G7rWEgc-G6r3QgUXXhu5FjIFR14bqlbg!5e0!3m2!1svi!2s!4v1778271753058!5m2!1svi!2s"
@@ -235,7 +241,7 @@
                 </div>
 
                 <!-- Form Contact (spans 1 col, 3 rows) -->
-                <form method="POST" action="{{ route('contact.store') }}"
+                <form method="POST" action="{{ route('contact.store') }}" data-animate="slideInRight"
                     class="hero-reveal hero-reveal-delay-2 lg:row-span-3 space-y-6 bg-slate-50 p-8 rounded-2xl border border-slate-200">
                     @csrf
                     <h3 class="text-lg font-bold">Gửi yêu cầu</h3>
@@ -278,7 +284,7 @@
                 </form>
 
                 <!-- Contact Info Section (spans 2 cols, 1 row) -->
-                <div
+                <div data-animate="fadeInUp" data-delay="200"
                     class="hero-reveal hero-reveal-delay-2 bg-slate-50 p-8 rounded-2xl border border-slate-200 lg:col-span-1 lg:row-span-1">
                     <h3 class="text-2xl font-bold mb-6">Thông tin liên hệ</h3>
 
