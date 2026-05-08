@@ -16,21 +16,4 @@ class DashboardController extends Controller
 
         return view('admin.dashboard', compact('totalContacts', 'unreadContacts', 'recentContacts'));
     }
-
-    public function contacts()
-    {
-        $contacts = Contact::latest()->paginate(15);
-        return view('admin.contacts.index', compact('contacts'));
-    }
-
-    public function updateContactStatus(Request $request, Contact $contact)
-    {
-        $contact->update(['status' => $request->boolean('status')]);
-        return back()->with('success', 'Cập nhật trạng thái thành công');
-    }
-
-    public function show(Contact $contact)
-    {
-        return view('admin.contacts.show', compact('contact'));
-    }
 }
