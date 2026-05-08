@@ -32,6 +32,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('categories', CategoryController::class)->except(['show']);
 
         Route::get('/contacts', [DashboardController::class, 'contacts'])->name('contacts.index');
+        Route::get('/contacts/{contact}', [DashboardController::class, 'show'])->name('contacts.show');
         Route::patch('/contacts/{contact}/status', [DashboardController::class, 'updateContactStatus'])->name('contacts.update-status');
 
         // Audit log

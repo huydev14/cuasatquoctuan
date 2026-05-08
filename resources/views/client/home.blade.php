@@ -240,41 +240,47 @@
                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
-                <!-- Form Contact (spans 1 col, 3 rows) -->
                 <form method="POST" action="{{ route('contact.store') }}" data-animate="slideInRight"
                     class="hero-reveal hero-reveal-delay-2 lg:row-span-3 space-y-6 bg-slate-50 p-8 rounded-2xl border border-slate-200">
                     @csrf
+
+                    @if(session('success'))
+                        <div class="rounded-md bg-green-50 p-4 border border-green-100">
+                            <p class="text-green-800 font-semibold">{{ session('success') }}</p>
+                        </div>
+                    @endif
+
                     <h3 class="text-lg font-bold">Gửi yêu cầu</h3>
 
                     <div class="grid grid-cols-1 gap-4">
                         <div>
                             <label for="name" class="block text-sm font-semibold mb-2">Họ và tên</label>
-                            <input type="text" id="name" name="name" required
+                            <input type="text" id="name" name="name" required value="{{ old('name') }}"
                                 class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20">
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-semibold mb-2">Số điện thoại</label>
-                            <input type="tel" id="phone" name="phone" required
+                            <input type="tel" id="phone" name="phone" required value="{{ old('phone') }}"
                                 class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20">
                         </div>
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email" required
+                        <input type="email" id="email" name="email" required value="{{ old('email') }}"
                             class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20">
                     </div>
 
                     <div>
                         <label for="subject" class="block text-sm font-semibold mb-2">Chủ đề</label>
-                        <input type="text" id="subject" name="subject" required
+                        <input type="text" id="subject" name="subject" required value="{{ old('subject') }}"
                             class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20">
                     </div>
 
                     <div>
                         <label for="message" class="block text-sm font-semibold mb-2">Tin nhắn</label>
                         <textarea id="message" name="message" rows="4" required
-                            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20"></textarea>
+                            class="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20">{{ old('message') }}</textarea>
                     </div>
 
                     <button type="submit"

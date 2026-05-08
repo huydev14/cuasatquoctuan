@@ -23,7 +23,6 @@
         </div>
     </div>
 
-    <!-- Recent Contacts -->
     <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
         <div class="px-6 py-4 border-b border-slate-200">
             <h3 class="text-lg font-bold">Liên hệ gần đây</h3>
@@ -54,9 +53,7 @@
                                 {{ $contact->created_at->format('d/m/Y H:i') }}
                             </td>
                             <td class="px-6 py-4 text-center">
-                                <a href="/admin/contacts" class="text-sky-500 hover:text-sky-700 font-semibold">
-                                    Xem
-                                </a>
+                                <a href="{{ route('admin.contacts.show', $contact) }}" class="text-sky-500 hover:text-sky-700 font-semibold">Xem</a>
                             </td>
                         </tr>
                     @empty

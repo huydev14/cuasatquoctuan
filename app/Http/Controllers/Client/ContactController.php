@@ -23,6 +23,8 @@ class ContactController extends Controller
             'status' => false,
         ]);
 
-        return back()->with('success', 'Gửi yêu cầu thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+        $redirectTo = url()->previous() . '#contact';
+
+        return redirect()->to($redirectTo)->with('success', 'Gửi yêu cầu thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất.');
     }
 }

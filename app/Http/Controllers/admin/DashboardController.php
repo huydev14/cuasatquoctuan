@@ -28,4 +28,9 @@ class DashboardController extends Controller
         $contact->update(['status' => $request->boolean('status')]);
         return back()->with('success', 'Cập nhật trạng thái thành công');
     }
+
+    public function show(Contact $contact)
+    {
+        return view('admin.contacts.show', compact('contact'));
+    }
 }
