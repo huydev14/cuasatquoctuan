@@ -42,6 +42,9 @@ Route::middleware(['auth', 'verified'])
         Route::get('/contacts', [DashboardController::class, 'contacts'])->name('contacts.index');
         Route::patch('/contacts/{contact}/status', [DashboardController::class, 'updateContactStatus'])->name('contacts.update-status');
 
+        // Audit log
+        Route::get('/audit', [\App\Http\Controllers\Admin\AuditLogController::class, 'index'])->name('audit.index');
+
     });
 
 require __DIR__.'/auth.php';

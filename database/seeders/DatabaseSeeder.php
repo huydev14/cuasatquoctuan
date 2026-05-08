@@ -25,6 +25,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
             'email_verified_at' => now(),
         ]);
+        User::firstOrCreate([
+            'email' => 'trgiahuy14@gmail.com',
+        ], [
+            'name' => 'Admin Gia Huy',
+            'password' => Hash::make('123'),
+            'email_verified_at' => now(),
+        ]);
 
         $this->call([
             CategorySeeder::class,
