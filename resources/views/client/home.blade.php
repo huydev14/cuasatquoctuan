@@ -32,8 +32,7 @@
                                 class="inline-flex rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold uppercase tracking-[0.06em] text-slate-950 transition hover:-translate-y-0.5">Trang
                                 chủ</a></li>
                         <li><a href="#about-us"
-                                class="inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.06em] text-white/90 transition hover:bg-white/10 hover:text-white">Về
-                                chúng tôi</a></li>
+                                class="inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.06em] text-white/90 transition hover:bg-white/10 hover:text-white">Về chúng tôi</a></li>
                         <li><a href="/projects"
                                 class="inline-flex rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.06em] text-white/90 transition hover:bg-white/10 hover:text-white">Công
                                 trình</a></li>
